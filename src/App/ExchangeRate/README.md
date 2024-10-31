@@ -91,3 +91,15 @@ Poza wyjątkiem, który informuje nas o wyjściu poza zakres w datach, wyrzucamy
 błędu aby nie dotarło do niego zbyt dużo informacji "od zaplecza", które to są słane do logów celem ewentualnego
 debugowania 
 
+
+### Dodawanie nowej waluty
+Dodawanie nowej waluty można zrealizować praktycznie używając jedynie ``services.xml``
+Wystarczy tu dodać nową walutę w node ``services.App\ExchangeRate\UsedCurrenciesProvider.arguments.$usedCurrencies``
+
+Do tego aby zapewnić kalkulacje cen kupna i sprzedaży dla nowej waluty należy dodać (można użyć istniejących) strategie
+w node'ach
+```
+services.app.exchangeRate.trade.tradeRateProvider.arguments.$buyingRateCalcStrategies
+services.app.exchangeRate.trade.tradeRateProvider.arguments.$sellRateCalcStrategies
+```
+
