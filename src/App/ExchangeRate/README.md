@@ -31,6 +31,11 @@ App\ExchangeRate\CurrencyExchangeClientFactory
 Fabryka ta jest użyta do wstępnego skonfigurowania naszego klienta tak, aby był gotowy do pracy 
 np. w naszym kontrolerze ``App\Controller\ExchangeRatesController``
 
+Dodatkowo wydzieliłem klasę abstrakcyjną dla klienta/przyszłych klientów, po której można dziedziczyć,
+a która z marszu wykonuje za nas parę rzeczy, które normalnie musielibyśmy implementować osobno w każdej
+nowej klasie klienta i duplikować kod, który prawdopodobnie byłby niemal identyczny.
+Wspomniany abstract: ``App\ExchangeRate\Http\AbstractCurrencyExchangeClient``
+
 Na potrzeby zadania  mamy utworzonego klienta ``App\ExchangeRate\Http\NBPRestClient``, który serwuje
 nam dane z RESTowego api NBP. Nic nie stoi na przeszkodzie aby takim klientem stał się np. jakiś twór
 SOAPowy, który bierze dane ze źródła X. Jeśli zaimplementuje odpowiednio wspomniany wcześniej interfejs
